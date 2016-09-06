@@ -1,0 +1,6 @@
+into-git
+node_modules
+.DS_Store
+.idea
+.project
+.strong-pm
