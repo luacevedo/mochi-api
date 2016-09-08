@@ -6,8 +6,6 @@ var bodyParser = require('body-parser'); //parses information from POST
 var methodOverride = require('method-override'); //used to manipulate POST
 var PatientAttribute = require('../models/PatientAttribute');
 
-var app = express();
-
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(methodOverride(function (req, res) {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {

@@ -8,8 +8,8 @@ var db = require('./models/db');
 var PatientAttribute = require('./models/PatientAttribute');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var patients = require('./routes/patients');
+var users = require('./routes/users/users');
+var patients = require('./routes/getPatientAttributes');
 
 var app = express();
 
