@@ -9,7 +9,9 @@ var PatientAttribute = require('./models/PatientAttribute');
 
 var routes = require('./routes/index');
 var users = require('./routes/users/users');
-var patients = require('./routes/getPatientAttributes');
+var attributes = require('./routes/attributes');
+var inputFields = require('./routes/inputfields');
+var rules = require('./routes/rules');
 
 var app = express();
 
@@ -27,7 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/patients', patients);
+app.use('/attributes', attributes);
+app.use('/inputields', inputFields);
+app.use('/rules', rules);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

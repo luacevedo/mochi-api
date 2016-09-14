@@ -4,7 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose'); //mongo connection
 // var bodyParser = require('body-parser'); //parses information from POST
 // var methodOverride = require('method-override'); //used to manipulate POST
-var PatientAttribute = require('../models/PatientAttribute');
+var InputField = require('../models/InputField');
 
 // router.use(bodyParser.urlencoded({extended: true}))
 // router.use(methodOverride(function (req, res) {
@@ -16,29 +16,25 @@ var PatientAttribute = require('../models/PatientAttribute');
 // }));
 
 router.route('/')
-    .get(function (req, res, next) {
-        mongoose.model('PatientAttribute').find(function (err, patientAttributes) {
+    .get(function (req, res) {
+        mongoose.model('InputField').find(function (err, inputFields) {
             var response = [];
 
             if (err) return console.error(err);
 
-            _.each(patientAttributes, function(attribute) {
-                var parentCategoryObj = attribute.toObject();
-
-                delete parentCategoryObj._id;
-                delete parentCategoryObj.__v;
-                response.push(parentCategoryObj);
+            _.each(inputFields, function(inputField) {
+                response.push(inputField.toObject());
             });
 
             res.json(response);
         });
     })
     .post(function (req, res) {
-        var attribute = new PatientAttribute(req.body);
+        var inputField = new InputField(req.body);
 
-        attribute.save(function (err, attribute) {
+        inputField.save(function (err, inputField) {
             if (err) return console.error(err);
-            res.json(attribute);
+            res.json(inputField);
         });
     });
 
