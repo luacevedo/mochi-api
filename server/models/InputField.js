@@ -1,9 +1,9 @@
 'use strict';
 
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-let InputFieldSchema = new Schema({}, { strict: false });
+var InputFieldSchema = new Schema({}, { strict: false });
 
 if (!InputFieldSchema.options.toObject) {
     InputFieldSchema.options.toObject = {};

@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/attributes', attributes);
-app.use('/inputields', inputFields);
+app.use('/inputfields', inputFields);
 app.use('/rules', rules);
 
 // catch 404 and forward to error handler
